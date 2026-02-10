@@ -1,4 +1,4 @@
-\# Metrics Specification
+# Metrics Specification
 
 
 
@@ -12,15 +12,11 @@ decision-making.
 
 
 
----
+# A. Customer Experience Metrics
 
 
 
-\## A. Customer Experience Metrics
-
-
-
-\### Metric Name: First Response Time (FRT)
+## Metric Name: First Response Time (FRT)
 
 
 
@@ -57,8 +53,7 @@ Trigger alert if average FRT exceeds SLA (e.g., 1 hour) for 2 consecutive hours.
 
 
 
-
-\### Metric Name: Time to Resolution (TTR)
+## Metric Name: Time to Resolution (TTR)
 
 
 
@@ -97,8 +92,7 @@ week-over-week.
 
 
 
-
-\### Metric Name: Escalation Rate
+## Metric Name: Escalation Rate
 
 
 
@@ -137,8 +131,7 @@ category for 2 consecutive weeks.
 
 
 
-
-\### Metric Name: Customer Satisfaction Proxy (CSAT)
+## Metric Name: Customer Satisfaction Proxy (CSAT)
 
 
 
@@ -174,15 +167,13 @@ Trigger service recovery workflow if any individual score falls below 2 out of 5
 
 
 
----
+
+
+# B. Operational Efficiency Metrics
 
 
 
-\## B. Operational Efficiency Metrics
-
-
-
-\### Metric Name: Average Handle Time (AHT)
+## Metric Name: Average Handle Time (AHT)
 
 
 
@@ -219,8 +210,7 @@ Review workflows if AHT deviates more than 20% from team baseline for 1 week.
 
 
 
-
-\### Metric Name: Tickets per Agent
+## Metric Name: Tickets per Agent
 
 
 
@@ -257,8 +247,7 @@ consecutive weeks.
 
 
 
-
-\### Metric Name: Automation Resolution Rate
+## Metric Name: Automation Resolution Rate
 
 
 
@@ -297,8 +286,7 @@ Audit top unanswered intents if automation resolution rate drops below 30% for
 
 
 
-
-\### Metric Name: Backlog Size
+## Metric Name: Backlog Size
 
 
 
@@ -336,15 +324,13 @@ volume for 2 consecutive days.
 
 
 
----
+
+
+# C. AI Performance Metrics
 
 
 
-\## C. AI Performance Metrics
-
-
-
-\### Metric Name: Intent Classification Accuracy
+## Metric Name: Intent Classification Accuracy
 
 
 
@@ -387,8 +373,7 @@ Applies to intent classification and routing models only.
 
 
 
-
-\### Metric Name: False Escalation Rate
+## Metric Name: False Escalation Rate
 
 
 
@@ -467,8 +452,7 @@ specific topic.
 
 
 
-
-\### Metric Name: Model Drift Score
+## Metric Name: Model Drift Score
 
 
 
@@ -512,15 +496,14 @@ Applies to intent classification and routing models.
 
 
 
----
 
 
 
-\## D. Business Impact Metrics
+# D. Business Impact Metrics
 
 
 
-\### Metric Name: Cost per Ticket
+## Metric Name: Cost per Ticket
 
 
 
@@ -558,7 +541,7 @@ threshold.
 
 
 
-\### Metric Name: Support-Adjusted Retention Delta
+## Metric Name: Support-Adjusted Retention Delta
 
 
 
@@ -595,8 +578,7 @@ Launch at-risk retention campaign if delta exceeds 5% over a quarterly period.
 
 
 
-
-\### Metric Name: Support Cost Ratio
+## Metric Name: Support Cost Ratio
 
 
 
