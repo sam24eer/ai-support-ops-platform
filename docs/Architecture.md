@@ -2,11 +2,11 @@
 
 
 
-\## 1. System Components
+\# 1. System Components
 
 
 
-\### Client Interface
+\## Client Interface
 
 Purpose:
 
@@ -30,7 +30,7 @@ Rendered responses, status updates, notifications, and error messages.
 
 
 
-\### API Gateway
+\## API Gateway
 
 Purpose:
 
@@ -56,7 +56,7 @@ returned to the client.
 
 
 
-\### AI Orchestration Layer
+\## AI Orchestration Layer
 
 Purpose:
 
@@ -82,7 +82,7 @@ recommendations.
 
 
 
-\### Decision Engine
+\## Decision Engine
 
 Purpose:
 
@@ -106,7 +106,7 @@ Routing instructions, priority assignments, and workflow actions.
 
 
 
-\### Human Review Interface
+\## Human Review Interface
 
 Purpose:
 
@@ -130,7 +130,7 @@ Final resolutions, corrected labels, override reasons, and audit events.
 
 
 
-\### Data Store
+\## Data Store
 
 Purpose:
 
@@ -154,7 +154,7 @@ Queryable records, event histories, and datasets.
 
 
 
-\### Analytics and Metrics Engine
+\## Analytics and Metrics Engine
 
 Purpose:
 
@@ -178,7 +178,7 @@ Computed metrics, alerts, and aggregated reports.
 
 
 
-\### Ops and Governance Layer
+\## Ops and Governance Layer
 
 Purpose:
 
@@ -204,7 +204,7 @@ Controlled rollouts, audit logs, incident records, and compliance artifacts.
 
 
 
-\## 2. End-to-End Data Flow
+\# 2. End-to-End Data Flow
 
 
 
@@ -286,11 +286,11 @@ analytics and model monitoring pipelines to guide future improvements.
 
 
 
-\## 3. Decision Points
+\# 3. Decision Points
 
 
 
-\### Decision Point 1: Model Version Selection
+\## Decision Point 1: Model Version Selection
 
 
 
@@ -326,7 +326,7 @@ quality across customer segments.
 
 
 
-\### Decision Point 2: Auto-Resolve vs Escalate
+\## Decision Point 2: Auto-Resolve vs Escalate
 
 
 
@@ -352,7 +352,7 @@ Trigger automated workflow or enqueue ticket for agent handling.
 
 
 
-\### Decision Point 3: Risk and Sentiment Escalation
+\## Decision Point 3: Risk and Sentiment Escalation
 
 
 
@@ -378,7 +378,7 @@ Route immediately to a specialist or retention team with elevated priority.
 
 
 
-\### Decision Point 4: SLA Breach Detection
+\## Decision Point 4: SLA Breach Detection
 
 
 
@@ -404,7 +404,7 @@ Notify responsible owners and log violation events.
 
 
 
-\### Decision Point 5: Human Override Capture
+\## Decision Point 5: Human Override Capture
 
 
 
@@ -430,11 +430,11 @@ Store example for retraining and analysis.
 
 
 
-\## 4. Failure Modes and Handling
+\# 4. Failure Modes and Handling
 
 
 
-\### Failure Mode: AI Misclassification
+\## Failure Mode: AI Misclassification
 
 Detection:
 
@@ -466,7 +466,7 @@ Automation resolution rate, CSAT, override rate.
 
 
 
-\### Failure Mode: High Latency
+\## Failure Mode: High Latency
 
 Detection:
 
@@ -494,7 +494,7 @@ P99 latency, system availability.
 
 
 
-\### Failure Mode: SLA Breach
+\## Failure Mode: SLA Breach
 
 Detection:
 
@@ -522,7 +522,7 @@ SLA compliance rate, response time.
 
 
 
-\### Failure Mode: Data Pipeline Failure
+\## Failure Mode: Data Pipeline Failure
 
 Detection:
 
@@ -552,7 +552,7 @@ Data freshness, downstream model accuracy.
 
 
 
-\### Failure Mode: Model Drift
+\## Failure Mode: Model Drift
 
 Detection:
 
@@ -580,7 +580,7 @@ AI accuracy, false escalation rate.
 
 
 
-\### Failure Mode: Sudden Ticket Spikes
+\## Failure Mode: Sudden Ticket Spikes
 
 Detection:
 
@@ -612,7 +612,7 @@ Ticket volume, response time, cost per ticket.
 
 
 
-\## 5. Ops Hooks and Controls
+\# 5. Ops Hooks and Controls
 
 
 
@@ -620,7 +620,7 @@ Metrics continuously feed into the governance layer to drive enforcement.
 
 
 
-\### Metric-Driven Alerts
+\## Metric-Driven Alerts
 
 Threshold breaches generate alerts tied to specific owners and required
 
@@ -628,7 +628,7 @@ actions. Alerts are non-passive and tracked to resolution.
 
 
 
-\### SLA Enforcement
+\## SLA Enforcement
 
 SLA timers are enforced as system constraints, with early warnings,
 
@@ -636,7 +636,7 @@ automatic prioritization, and escalation on breach.
 
 
 
-\### Rollback and Model Control
+\## Rollback and Model Control
 
 Models and rules are versioned. Metric regressions trigger automatic rollback
 
@@ -644,7 +644,7 @@ to the last stable configuration without redeployment.
 
 
 
-\### Incident Management
+\## Incident Management
 
 Incidents are created automatically based on predefined triggers and require
 
@@ -652,7 +652,7 @@ post-incident review.
 
 
 
-\### Manual Overrides and Governance
+\## Manual Overrides and Governance
 
 All overrides are logged with reason codes and reviewed to guide model and
 
@@ -660,7 +660,7 @@ content updates.
 
 
 
-\### Release and Change Controls
+\## Release and Change Controls
 
 All changes pass through gated rollout processes with canary testing and
 
@@ -668,7 +668,7 @@ automatic rollback on metric regression.
 
 
 
-\### Auditability and Compliance
+\## Auditability and Compliance
 
 Every decision and action is persisted in an immutable event log to support
 
