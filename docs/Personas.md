@@ -2,7 +2,7 @@
 
 
 
-\## Persona 1: Support Agent
+\# Persona 1: Support Agent
 
 
 
@@ -62,7 +62,7 @@ Daily Workflow:
 
 
 
-\## Persona 2: Support Manager
+\# Persona 2: Support Manager
 
 
 
@@ -124,7 +124,7 @@ Daily Workflow:
 
 
 
-\## Persona 3: Business Owner
+\# Persona 3: Business Owner
 
 
 
@@ -173,6 +173,4 @@ Daily Workflow:
 \- Make budget decisions
 
 \- Set growth and retention goals
-
-
 
