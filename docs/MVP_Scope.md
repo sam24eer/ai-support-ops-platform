@@ -1,8 +1,8 @@
-\# MVP Scope Definition
+# MVP Scope Definition
 
 
 
-\## 1. MVP Overview
+## 1. MVP Overview
 
 
 
@@ -26,53 +26,27 @@ over feature breadth or automation depth.
 
 
 
-\## 2. In-Scope Features (MVP)
+## 2. In-Scope Features (MVP)
 
 
 
-\- Web-based support widget (text form)
+- Web-based support widget (text form)
 
-\- Centralized ticket creation and status tracking
+- Centralized ticket creation and status tracking
 
-\- AI-based intent classification with confidence scoring
+- AI-based intent classification with confidence scoring
 
-\- Auto-resolution for predefined “safe” intents using deterministic
+- Auto-resolution for predefined “safe” intents using deterministic
 
 &nbsp; responses
 
-\- Human handoff and routing for low-confidence or high-risk tickets
+- Human handoff and routing for low-confidence or high-risk tickets
 
-\- Basic agent dashboard for review and resolution
+- Basic agent dashboard for review and resolution
 
-\- SLA timer tracking and breach detection
+- SLA timer tracking and breach detection
 
-\- Full end-to-end event logging
-
-
-
----
-
-
-
-\## 3. Out-of-Scope Features (Post-MVP)
-
-
-
-\- Voice or phone-based support
-
-\- Multilingual support
-
-\- Real-time live chat
-
-\- CRM-driven personalization
-
-\- Transactional workflows (refunds, payments, account changes)
-
-\- Proactive outbound messaging
-
-\- Advanced sentiment analysis
-
-\- Automated model retraining pipelines
+- Full end-to-end event logging
 
 
 
@@ -80,7 +54,33 @@ over feature breadth or automation depth.
 
 
 
-\## 4. Build vs Mock Matrix
+## 3. Out-of-Scope Features (Post-MVP)
+
+
+
+- Voice or phone-based support
+
+- Multilingual support
+
+- Real-time live chat
+
+- CRM-driven personalization
+
+- Transactional workflows (refunds, payments, account changes)
+
+- Proactive outbound messaging
+
+- Advanced sentiment analysis
+
+- Automated model retraining pipelines
+
+
+
+---
+
+
+
+## 4. Build vs Mock Matrix
 
 
 
@@ -118,7 +118,7 @@ over feature breadth or automation depth.
 
 
 
-\## 5. Logging Plan (Day-One)
+## 5. Logging Plan (Day-One)
 
 
 
@@ -126,31 +126,31 @@ The following events are logged from MVP launch:
 
 
 
-\- Ticket created
+- Ticket created
 
-\- Ticket updated
+- Ticket updated
 
-\- Ticket resolved
+- Ticket resolved
 
-\- Ticket escalated
+- Ticket escalated
 
-\- AI intent prediction generated
+- AI intent prediction generated
 
-\- Confidence score recorded
+- Confidence score recorded
 
-\- Decision outcome (auto-resolve vs escalate)
+- Decision outcome (auto-resolve vs escalate)
 
-\- Human agent action
+- Human agent action
 
-\- SLA warning triggered
+- SLA warning triggered
 
-\- SLA breach triggered
+- SLA breach triggered
 
-\- Error or exception events
+- Error or exception events
 
-\- Model version used
+- Model version used
 
-\- Decision rule identifier applied
+- Decision rule identifier applied
 
 
 
@@ -164,51 +164,29 @@ debugging, and metric computation.
 
 
 
-\## 6. Data Schemas (High-Level)
+## 6. Data Schemas (High-Level)
 
 
 
-\### Tickets
-
-Fields:
-
-\- ticket\_id
-
-\- user\_id
-
-\- channel
-
-\- raw\_text
-
-\- status
-
-\- priority
-
-\- created\_timestamp
-
-\- resolved\_timestamp
-
-
-
----
-
-
-
-\### Predictions
+### Tickets
 
 Fields:
 
-\- prediction\_id
+- ticket_id
 
-\- ticket\_id
+- user_id
 
-\- model\_version
+- channel
 
-\- predicted\_intent
+- raw_text
 
-\- confidence\_score
+- status
 
-\- prediction\_timestamp
+- priority
+
+- created_timestamp
+
+- resolved_timestamp
 
 
 
@@ -216,19 +194,21 @@ Fields:
 
 
 
-\### Decisions
+### Predictions
 
 Fields:
 
-\- decision\_id
+- prediction_id
 
-\- ticket\_id
+- ticket_id
 
-\- decision\_type (auto\_resolve / escalate)
+- model_version
 
-\- rule\_applied
+- predicted_intent
 
-\- decision\_timestamp
+- confidence_score
+
+- prediction_timestamp
 
 
 
@@ -236,23 +216,19 @@ Fields:
 
 
 
-\### Overrides
+### Decisions
 
 Fields:
 
-\- override\_id
+- decision_id
 
-\- ticket\_id
+- ticket_id
 
-\- ai\_predicted\_label
+- decision_type (auto_resolve / escalate)
 
-\- human\_final\_label
+- rule_applied
 
-\- agent\_id
-
-\- override\_reason
-
-\- override\_timestamp
+- decision_timestamp
 
 
 
@@ -260,49 +236,23 @@ Fields:
 
 
 
-\### Metrics Snapshots
+### Overrides
 
 Fields:
 
-\- snapshot\_id
+- override_id
 
-\- metric\_name
+- ticket_id
 
-\- metric\_value
+- ai_predicted_label
 
-\- time\_window
+- human_final_label
 
-\- computed\_timestamp
+- agent_id
 
+- override_reason
 
-
----
-
-
-
-\## 7. Metrics Activation Plan
-
-
-
-\### Live in MVP
-
-
-
-\- Traffic volume
-
-\- First Response Time (FRT)
-
-\- Time to Resolution (TTR)
-
-\- Escalation Rate
-
-\- Automation Resolution Rate (Deflection)
-
-\- SLA breach rate
-
-\- AI confidence distribution
-
-\- Human override rate
+- override_timestamp
 
 
 
@@ -310,19 +260,69 @@ Fields:
 
 
 
-\### Post-MVP
+### Metrics Snapshots
+
+Fields:
+
+- snapshot_id
+
+- metric_name
+
+- metric_value
+
+- time_window
+
+- computed_timestamp
 
 
 
-\- Customer Satisfaction Proxy (CSAT)
+---
 
-\- Cost per Ticket
 
-\- Retention Delta
 
-\- Model drift score
+## 7. Metrics Activation Plan
 
-\- Advanced sentiment analysis
+
+
+### Live in MVP
+
+
+
+- Traffic volume
+
+- First Response Time (FRT)
+
+- Time to Resolution (TTR)
+
+- Escalation Rate
+
+- Automation Resolution Rate (Deflection)
+
+- SLA breach rate
+
+- AI confidence distribution
+
+- Human override rate
+
+
+
+---
+
+
+
+### Post-MVP
+
+
+
+- Customer Satisfaction Proxy (CSAT)
+
+- Cost per Ticket
+
+- Retention Delta
+
+- Model drift score
+
+- Advanced sentiment analysis
 
 
 
