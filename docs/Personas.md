@@ -1,8 +1,8 @@
-\# User Personas
+# User Personas
 
 
 
-\# Persona 1: Support Agent
+# Persona 1: Support Agent
 
 
 
@@ -16,53 +16,53 @@ across multiple digital channels.
 
 Goals:
 
-\- Resolve tickets accurately within SLA targets
+- Resolve tickets accurately within SLA targets
 
-\- Reduce repetitive, low-value work
+- Reduce repetitive, low-value work
 
-\- Improve first-contact resolution
+- Improve first-contact resolution
 
-\- Escalate complex issues efficiently
+- Escalate complex issues efficiently
 
 
 
 Pain Points:
 
-\- Manual ticket categorization and tagging
+- Manual ticket categorization and tagging
 
-\- Repetitive responses to common issues
+- Repetitive responses to common issues
 
-\- Context switching across multiple systems
+- Context switching across multiple systems
 
-\- Incomplete customer interaction history
+- Incomplete customer interaction history
 
-\- Platform latency increasing average handle time
+- Platform latency increasing average handle time
 
 
 
 Daily Workflow:
 
-\- Log into support system
+- Log into support system
 
-\- Review internal updates and known issues
+- Review internal updates and known issues
 
-\- Review incoming tickets
+- Review incoming tickets
 
-\- Interpret urgency manually
+- Interpret urgency manually
 
-\- Search FAQs or historical tickets
+- Search FAQs or historical tickets
 
-\- Respond or escalate
+- Respond or escalate
 
-\- Update ticket status
+- Update ticket status
 
-\- Manage follow-ups
-
-
+- Manage follow-ups
 
 
 
-\# Persona 2: Support Manager
+
+
+# Persona 2: Support Manager
 
 
 
@@ -76,55 +76,55 @@ handling.
 
 Goals:
 
-\- Growing the support volume without a linear increase in headcount (improving efficiency)
+- Growing the support volume without a linear increase in headcount (improving efficiency)
 
-\- Training new hires faster using better onboarding documentation on platforms like Trainual.
+- Training new hires faster using better onboarding documentation on platforms like Trainual.
 
-\- Improve agent productivity
+- Improve agent productivity
 
-\- Identify systemic issues
+- Identify systemic issues
 
-\- Report performance to leadership
+- Report performance to leadership
 
 
 
 Pain Points:
 
-\- Struggling to balance speed (AHT) with quality (CSAT). Pushing one often hurts the other.
+- Struggling to balance speed (AHT) with quality (CSAT). Pushing one often hurts the other.
 
-\- Manual reporting
+- Manual reporting
 
-\- Inconsistent ticket handling
+- Inconsistent ticket handling
 
-\- Keeping the team motivated in a high-stress environment to prevent expensive turnover.
+- Keeping the team motivated in a high-stress environment to prevent expensive turnover.
 
-\- Limited insight into root causes
+- Limited insight into root causes
 
 
 
 Daily Workflow:
 
-\- Checking real-time SLA (Service Level Agreement) health
+- Checking real-time SLA (Service Level Agreement) health
 
-\- Review queue health
+- Review queue health
 
-\- Monitor escalations
+- Monitor escalations
 
-\- Assign or reassign tickets
+- Assign or reassign tickets
 
-\- Generate performance reports
+- Generate performance reports
 
-\- Coach agents
+- Coach agents
 
-\- Handle critical incidents
+- Handle critical incidents
 
-\- Pulling data for the executive team to prove the ROI of the support department.
-
-
+- Pulling data for the executive team to prove the ROI of the support department.
 
 
 
-\# Persona 3: Business Owner
+
+
+# Persona 3: Business Owner
 
 
 
@@ -136,41 +136,41 @@ Founder or operations lead of a small to mid-sized company.
 
 Goals:
 
-\- Retain customers
+- Retain customers
 
-\- Turning support interactions into upsell or cross-sell opportunities by identifying customers who need a higher-tier plan.
+- Turning support interactions into upsell or cross-sell opportunities by identifying customers who need a higher-tier plan.
 
-\- Control support costs
+- Control support costs
 
-\- Ensuring the public-facing "experience" aligns with the company's marketing promises.
+- Ensuring the public-facing "experience" aligns with the company's marketing promises.
 
-\- Scale operations efficiently
+- Scale operations efficiently
 
 
 
 Pain Points:
 
-\- Rising support expenses
+- Rising support expenses
 
-\- Poor visibility into support performance
+- Poor visibility into support performance
 
-\- Realizing that as the customer base grows, the support team's costs are growing faster than the revenue.
+- Realizing that as the customer base grows, the support team's costs are growing faster than the revenue.
 
-\- Difficulty justifying new hires
+- Difficulty justifying new hires
 
-\- Tools that are expensive or rigid
+- Tools that are expensive or rigid
 
 
 
 Daily Workflow:
 
-\- Review high-level metrics
+- Review high-level metrics
 
-\- Respond to escalated complaints
+- Respond to escalated complaints
 
-\- Evaluate support tools
+- Evaluate support tools
 
-\- Make budget decisions
+- Make budget decisions
 
-\- Set growth and retention goals
+- Set growth and retention goals
 
