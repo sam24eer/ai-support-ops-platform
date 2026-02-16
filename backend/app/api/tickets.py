@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from app.models.schemas import TicketCreate
 from app.services.classifier import classify_intent
 from app.services.decision_engine import make_decision
+from app.services.metrics import record_event
 import logging
 import uuid
 from datetime import datetime
@@ -14,6 +15,20 @@ def create_ticket(payload: TicketCreate):
 
     intent, confidence = classify_intent(payload.text)
     decision = make_decision(intent, confidence)
+
+    record_event(
+        event_type="ticket_created",
+        payload={
+            "ticket_id": ticket_id,
+            "intent": intent,
+            "decision": decision
+        }
+    )
+
+    if decision == "auto_resolve":
+        record_event("ticket_auto_resolved", {"ticket_id": ticket_id})
+    else:
+        record_event("ticket_escalated", {"ticket_id": ticket_id})
 
     logging.info(
         f"ticket_created id={ticket_id} "
