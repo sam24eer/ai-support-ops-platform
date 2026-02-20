@@ -2,11 +2,11 @@
 
 
 
-\## Common Incidents
+\# Common Incidents
 
 
 
-\### High Escalation Rate
+\# High Escalation Rate
 
 \- Check recent intent distribution
 
@@ -16,7 +16,7 @@
 
 
 
-\### AI Misclassification
+\# AI Misclassification
 
 \- Identify affected intent
 
@@ -26,7 +26,7 @@
 
 
 
-\### Metrics Endpoint Failure
+\# Metrics Endpoint Failure
 
 \- Restart service
 
@@ -36,7 +36,7 @@
 
 
 
-\## Severity Levels
+\# Severity Levels
 
 \- Sev 1: System down
 
@@ -45,4 +45,38 @@
 \- Sev 3: Metrics inaccurate
 
 
+
+\# Known Failure Modes
+
+
+
+\# Classifier Confidence Drift
+
+Safeguard:
+
+\- Confidence thresholds
+
+\- Metrics monitoring
+
+\- Conservative defaults for high-risk intents
+
+
+
+\# Metrics Loss on Restart
+
+Safeguard:
+
+\- Logs as source of truth
+
+\- Metrics used for near-real-time visibility only
+
+
+
+\# Incorrect Auto-Resolution
+
+Safeguard:
+
+\- Rule-based decision engine
+
+\- High-risk intents always escalate
 
