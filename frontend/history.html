@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ticket History – AI Support Ops</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f3f4f6;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+    }
+
+    .ticket {
+      padding: 12px;
+      margin-bottom: 12px;
+      border-left: 4px solid #2563eb;
+      background: #f9fafb;
+      border-radius: 4px;
+    }
+
+    .ticket strong {
+      font-size: 14px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
+    .auto {
+      color: #047857;
+      font-weight: 600;
+    }
+
+    .escalate {
+      color: #b91c1c;
+      font-weight: 600;
+    }
+
+    .empty {
+      color: #6b7280;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Ticket History (Ops View)</h2>
+
+    <input
+      id="search"
+      placeholder="Search by user name (e.g. Sayan)"
+      oninput="filterTickets()"
+    />
+
+    <div id="tickets"></div>
+  </div>
+
+  <script>
+    let allTickets = [];
+
+    async function loadTickets() {
+      const response = await fetch("http://127.0.0.1:8000/tickets");
+      allTickets = await response.json();
+      renderTickets(allTickets);
+    }
+
+    function filterTickets() {
+      const query = document.getElementById("search").value.toLowerCase();
+      const filtered = allTickets.filter(t =>
+        t.user_id.toLowerCase().includes(query)
+      );
+      renderTickets(filtered);
+    }
+
+    function renderTickets(tickets) {
+      const container = document.getElementById("tickets");
+
+      if (tickets.length === 0) {
+        container.innerHTML =
+          '<p class="empty">No matching tickets found.</p>';
+        return;
+      }
+
+      container.innerHTML = tickets.map(t => `
+        <div class="ticket">
+          <strong>User:</strong> ${t.user_id}<br/>
+          <strong>Intent:</strong> ${t.intent.replace("_"," ")}<br/>
+          <strong>Decision:</strong>
+          <span class="${t.decision === "auto_resolve" ? "auto" : "escalate"}">
+            ${formatDecision(t.decision)}
+          </span>
+          <div class="meta">
+            ${new Date(t.created_at).toLocaleString()}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function formatDecision(decision) {
+      if (decision === "auto_resolve") return "Auto Resolved";
+      if (decision === "escalate") return "Escalated to Human";
+      return decision;
+    }
+
+    loadTickets();
+  </script>
+</body>
+</html>

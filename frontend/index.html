@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Support Ops – Ticket Tester</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f6f7f9;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #1f2933;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 6px;
+      background: #f9fafb;
+      border-left: 4px solid #2563eb;
+    }
+
+    .result h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .row {
+      margin-bottom: 8px;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .value {
+      margin-left: 5px;
+      color: #111827;
+    }
+
+    .auto {
+      color: #047857;
+      font-weight: 600;
+    }
+
+    .escalate {
+      color: #b91c1c;
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #6b7280;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Submit a Support Ticket</h2>
+
+    <label for="userId">User ID</label>
+    <input id="userId" placeholder="Enter your Name/Userid" />
+
+    <label for="message">Message</label>
+    <textarea id="message" placeholder="Describe the issue here..."></textarea>
+
+    <button onclick="submitTicket()">Submit Ticket</button>
+    <button type="button" onclick="window.location.href='history.html'">
+      View Ticket History
+    </button>
+
+    <div id="output"></div>
+
+    <div class="footer">
+      AI Support Operations Platform · Internal Test UI
+    </div>
+  </div>
+
+  <script>
+    async function submitTicket() {
+      const message = document.getElementById("message").value;
+      const userId = document.getElementById("userId").value;
+      const output = document.getElementById("output");
+
+      output.innerHTML = "";
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/tickets", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            user_id: userId,
+            channel: "web",
+            text: message
+          })
+        });
+
+        const data = await response.json();
+
+        const decisionClass =
+          data.decision === "auto_resolve" ? "auto" : "escalate";
+
+        output.innerHTML = `
+          <div class="result">
+            <h3>Ticket Result</h3>
+
+            <div class="row">
+              <span class="label">Ticket ID:</span>
+              <span class="value">${data.ticket_id}</span>
+            </div>
+
+            <div class="row">
+              <span class="label">Status:</span>
+              <span class="value">${data.status}</span>
+            </div>
+
+            <div class="row">
+              <span class="label">Intent:</span>
+              <span class="value">${data.intent.replace("_", " ")}</span>
+            </div>
+
+            <div class="row">
+              <span class="label">Confidence:</span>
+              <span class="value">${(data.confidence * 100).toFixed(1)}%</span>
+            </div>
+
+            <div class="row">
+              <span class="label">Decision:</span>
+              <span class="value ${decisionClass}">
+                ${formatDecision(data.decision)}
+              </span>
+            </div>
+
+            <div class="row">
+              <span class="label">Created At:</span>
+              <span class="value">
+                ${new Date(data.created_at).toLocaleString()}
+              </span>
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        output.innerHTML = `
+          <div class="result">
+            <strong>Error:</strong> Unable to submit ticket.
+          </div>
+        `;
+      }
+    }
+
+    function formatDecision(decision) {
+      if (decision === "auto_resolve") return "Auto Resolved";
+      if (decision === "escalate") return "Escalated to Human";
+      return decision;
+    }
+  </script>
+</body>
+</html>
