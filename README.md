@@ -24,71 +24,54 @@ leading to poor response times, high costs, and customer churn.
 
 This platform introduces:
 
-- Structured ticket intake
-
-- AI-based intent classification
-
-- Confidence-based decision engine
-
-- Automated vs human escalation logic
-
-- End-to-end observability and metrics
+* Structured ticket intake
+* AI-based intent classification
+* Confidence-based decision engine
+* Automated vs human escalation logic
+* End-to-end observability and metrics
 
 
 
 ## Architecture
 
-- FastAPI backend
-
-- Modular services (classification, decision engine, metrics)
-
-- Clear separation between AI predictions and business rules
+* FastAPI backend
+* Modular services (classification, decision engine, metrics)
+* Clear separation between AI predictions and business rules
 
 
 
 ## Key Features
 
-- Ticket ingestion API
-
-- Intent classification with confidence scoring
-
-- Rule-based auto-resolution vs escalation
-
-- Metrics and event tracking
-
-- Operational documentation and runbooks
+* Ticket ingestion API
+* Intent classification with confidence scoring
+* Rule-based auto-resolution vs escalation
+* Metrics and event tracking
+* Operational documentation and runbooks
 
 
 
 ## Metrics Tracked
 
-- Ticket volume
-
-- Auto-resolution rate
-
-- Escalation rate
-
-- Decision audit trail
+* Ticket volume
+* Auto-resolution rate
+* Escalation rate
+* Decision audit trail
 
 
 
 ## Project Status
 
-- Week 1: Problem definition and system design ✅
-
-- Week 2: Backend, AI logic, metrics, and ops documentation ✅
+* Week 1: Problem definition and system design ✅
+* Week 2: Backend, AI logic, metrics, and ops documentation ✅
 
 
 
 ## Future Improvements
 
-- Replace stub classifier with trained ML model
-
-- Persistent database for tickets and metrics
-
-- Alerting and dashboards
-
-- Multichannel intake (chat, email)
+* Replace stub classifier with trained ML model
+* Persistent database for tickets and metrics
+* Alerting and dashboards
+* Multichannel intake (chat, email)
 
 
 
@@ -108,13 +91,10 @@ misclassification, poor customer experience, and lack of trust.
 
 The system was designed with an ops-first mindset:
 
-- AI provides predictions, not decisions
-
-- Business rules control automation
-
-- All decisions are logged and measurable
-
-- Failure scenarios are documented upfront
+* AI provides predictions, not decisions
+* Business rules control automation
+* All decisions are logged and measurable
+* Failure scenarios are documented upfront
 
 
 
@@ -128,13 +108,33 @@ while maintaining accountability and observability.
 
 ## Key Learnings
 
-- AI confidence must be treated as an input, not authority
-
-- Metrics are essential for trust in automation
-
-- Operational readiness is as important as model accuracy
+* AI confidence must be treated as an input, not authority
+* Metrics are essential for trust in automation
+* Operational readiness is as important as model accuracy
 
 
+
+## Design Decisions (Interview Notes)
 
 #### 
+
+## Why separate AI and decision logic?
+
+To prevent AI from directly triggering irreversible actions and to
+
+allow business rules to control risk and accountability.
+
+#### 
+
+## Why metrics before dashboards?
+
+Metrics ensure correctness first; visualization can be layered later.
+
+#### 
+
+## Why stubbed AI?
+
+The project focuses on AI Ops architecture rather than model training.
+
+Replacing the classifier does not affect system design.
 
