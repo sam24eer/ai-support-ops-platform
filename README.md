@@ -63,15 +63,17 @@ This platform introduces:
 
 * Week 1: Problem definition and system design ✅
 * Week 2: Backend, AI logic, metrics, and ops documentation ✅
+* Week 3: User interface, ticket history, ops view, and Dockerization ✅
 
 
 
 ## Future Improvements
 
-* Replace stub classifier with trained ML model
-* Persistent database for tickets and metrics
-* Alerting and dashboards
-* Multichannel intake (chat, email)
+* Persist tickets and metrics using SQLite or PostgreSQL
+* Add authentication for Ops UI
+* Backend filtering and pagination for ticket history
+* Alerts for SLA breaches and escalation spikes
+* Replace classifier stub with trained ML or LLM-based model
 
 
 
@@ -114,27 +116,177 @@ while maintaining accountability and observability.
 
 
 
+## User Interface (New)
+
+
+
+To improve usability and enable realistic testing, a lightweight web-based UI was added.
+
+
+
+#### End-User UI
+
+
+
+Allows users to submit support tickets via a simple form
+
+
+
+Eliminates the need to manually craft JSON requests in API docs
+
+
+
+Intended for testers and non-technical users
+
+
+
+#### Ops / Admin UI
+
+
+
+Dedicated page for viewing ticket history
+
+
+
+Search tickets by user name
+
+
+
+Provides operational visibility without exposing data to end users
+
+
+
+This separation mirrors real-world systems where customer-facing interfaces and internal ops tools are distinct.
+
+
+
+#### Ticket History \& Search
+
+
+
+All tickets created during a session are stored in memory
+
+
+
+Ops users can view all tickets in a single dashboard
+
+
+
+Search functionality enables quick lookup by user name
+
+
+
+Designed for testing and analysis during the MVP phase
+
+
+
+Note:
+
+Ticket history is intentionally in-memory and resets on service restart.
+
+Persistence is planned as a future improvement.
+
+
+
+## Docker Support (New)
+
+
+
+The entire application is fully Dockerized to simplify setup and ensure consistent execution across environments.
+
+
+
+What Docker Enables
+
+
+
+One-command startup
+
+
+
+No local Python or virtual environment required
+
+
+
+Backend API and UI served together
+
+
+
+Identical behavior for all users
+
+
+
+#### Run with Docker
+
+
+
+docker-compose up --build
+
+
+
+#### Access Points
+
+* Ticket UI: http://localhost:8000/ui
+* Ops UI: http://localhost:8000/ops
+* API Docs: http://localhost:8000/docs
+* Metrics: http://localhost:8000/metrics
+* Health Check: http://localhost:8000/health
+
+
+
+Docker support makes the project easier to evaluate, demo, and share.
+
+
+
 ## Design Decisions (Interview Notes)
 
-#### 
 
-## Why separate AI and decision logic?
+
+#### Why separate AI and decision logic?
 
 To prevent AI from directly triggering irreversible actions and to
 
 allow business rules to control risk and accountability.
 
-#### 
 
-## Why metrics before dashboards?
+
+#### Why metrics before dashboards?
 
 Metrics ensure correctness first; visualization can be layered later.
 
-#### 
 
-## Why stubbed AI?
+
+#### Why stubbed AI?
 
 The project focuses on AI Ops architecture rather than model training.
 
 Replacing the classifier does not affect system design.
+
+
+
+## Summary
+
+
+
+This project now demonstrates not only safe AI automation and observability, but also:
+
+
+
+Realistic user interaction
+
+
+
+Operational visibility
+
+
+
+Deployment readiness
+
+
+
+Clear separation of concerns between users and operators
+
+
+
+The system is intentionally scoped as an MVP, with architectural decisions that support future scaling without redesign.
 
